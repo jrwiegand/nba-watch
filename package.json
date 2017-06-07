@@ -1,7 +1,7 @@
 {
-  "name": "nba-watch-project",
-  "version": "1.0.0",
-  "description": "A vue.js project to watch fantasy scores for the NBA",
+  "name": "nfl-watch-project",
+  "version": "0.0.1",
+  "description": "A vue.js project to watch fantasy scores for the NFL",
   "author": "Josh Wiegand <joshwiegand55@gmail.com>",
   "private": true,
   "scripts": {

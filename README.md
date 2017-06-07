@@ -1,6 +1,6 @@
-# nba-watch-project
+# nfl-watch-project
 
-> A vue.js project to watch fantasy scores for the NBA
+> A vue.js project to watch fantasy scores for the NFL
 
 ## Build Setup
 
