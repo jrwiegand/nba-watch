@@ -1,16 +1,24 @@
 <template>
-  <div class="main">
-    <h4>Search for a player</h4>
-    <form>
-      <div>
-        <div>
-          <input type="text" placeholder="Julio Jones" v-model="player">
+  <div id="app" class="container">
+    <div class="grid -top -center">
+      <h1>Search for a player's fantasy stats</h1>
+    </div>
+    <div class="grid -center">
+      <form class="form" id="form">
+        <fieldset class="form-group">
+          <label for="player">Player:</label>
+          <input id="player" type="text" placeholder="type a name..." class="form-control">
+        </fieldset>
+        <fieldset class="form-group">
+          <label for="scoreType">Scoring:</label>
+          <input type="radio" name="scoreType" value="standard" checked> Standard
+          <input type="radio" name="scoreType" value="ppr"> PPR
+        </fieldset>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary btn-block">Submit</button>
         </div>
-      </div>
-      <div>
-        <button id="submit-form">Submit</button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -19,7 +27,8 @@ export default {
   name: 'main',
   data () {
     return {
-      player: ''
+      player: '',
+      scoreType: ''
     }
   },
   watch () {
