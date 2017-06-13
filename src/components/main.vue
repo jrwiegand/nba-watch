@@ -1,24 +1,21 @@
 <template>
-  <div id="app" class="container">
-    <div class="grid -top -center">
-      <h1>Search for a player's fantasy stats</h1>
-    </div>
-    <div class="grid -center">
-      <form class="form" id="form">
-        <fieldset class="form-group">
-          <label for="player">Player:</label>
-          <input id="player" type="text" placeholder="type a name..." class="form-control">
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="scoreType">Scoring:</label>
-          <input type="radio" name="scoreType" value="standard" checked> Standard
-          <input type="radio" name="scoreType" value="ppr"> PPR
-        </fieldset>
-        <div class="form-actions">
-          <button type="button" class="btn btn-primary btn-block">Submit</button>
+  <div id="app">
+    <form lpformnum="1">
+      <fieldset>
+        <legend>Player Search</legend>
+        <div class="input-group">
+          <input type="text" id="player" placeholder="Enter a name..." v-model="player">
         </div>
-      </form>
-    </div>
+        <div class="input-group">
+          <button type="submit" class="primary">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  <div>
+    {{player}}
+  </div>
   </div>
 </template>
 
