@@ -1,18 +1,22 @@
 <template>
-  <div id="app">
-    <form lpformnum="1">
-      <fieldset>
-        <legend>Player Search</legend>
-        <div class="input-group">
-          <input type="text" id="player" placeholder="Enter a name..." v-model="player">
-        </div>
-        <div class="input-group">
-          <button type="submit" class="primary">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </div>
-      </fieldset>
-    </form>
+  <div id="app" class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <form lpformnum="1">
+          <fieldset>
+            <legend>Player Search</legend>
+            <div class="input-group">
+              <input type="text" id="player" placeholder="Enter a name..." v-model="player">
+            </div>
+            <div class="input-group">
+              <button type="submit" class="primary">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
   <div>
     {{player}}
   </div>
