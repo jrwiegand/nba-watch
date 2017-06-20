@@ -1,26 +1,53 @@
 <template>
-  <div id="app" class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <form lpformnum="1">
-          <fieldset>
-            <legend>Player Search</legend>
-            <div class="input-group">
-              <input type="text" id="player" placeholder="Enter a name..." v-model="player">
-            </div>
-            <div class="input-group">
-              <button type="submit" class="primary">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  <div>
-    {{player}}
-  </div>
-  </div>
+<div class="row" id="forms-input">
+        <div class="col-sm">
+          <div class="card fluid">
+            <div class="section"><h3>Search for a player</h3></div>
+            <div class="section row">
+              <div class="col-sm-12 col-sm-last col-lg-4 col-md-normal">
+              <form lpformnum="4">
+              <fieldset>
+                <legend>Aligned form (using grid)</legend>
+                <div class="row responsive-label">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="number">Number</label>
+                  </div>
+                  <div class="col-sm-12 col-md">
+                    <input value="4" id="number" style="width:85%;" type="number">
+                  </div>
+                </div>
+                <div class="row responsive-label">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="disabled">Disabled</label>
+                  </div>
+                  <div class="col-sm-12 col-md">
+                    <input disabled="" value="disabled" id="disabled" style="width:85%;">
+                  </div>
+                </div>
+                <div class="row responsive-label">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="readonly">Readonly</label>
+                  </div>
+                  <div class="col-sm-12 col-md">
+                    <input readonly="" value="readonly" id="readonly" style="width:85%;">
+                  </div>
+                </div>
+                <div class="row responsive-label">
+                  <div class="col-sm-12 col-md-3">
+                    <label for="select">Select</label>
+                  </div>
+                  <div class="col-sm-12 col-md">
+                    <select id="select"> <option>Apples</option> <option>Oranges</option> </select>
+                  </div>
+                </div>
+              </fieldset>
+              </form>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
 </template>
 
 <script>
