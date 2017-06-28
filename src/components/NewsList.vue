@@ -32,10 +32,13 @@ export default {
   },
   methods: {
     updateSource: function (source) {
-      var url = 'https://newsapi.org/v1/articles?source=' + source + '&apiKey=226135efd44c4df8a142d9eefff2377e'
-      this.$http.get(url).then(response => {
-        this.articles = response.data.articles
-      })
+      if (source) {
+        var key = '226135efd44c4df8a142d9eefff2377e'
+        var url = 'https://newsapi.org/v1/articles?source=' + source + '&apiKey=' + key
+        this.$http.get(url).then(response => {
+          this.articles = response.data.articles
+        })
+      }
     }
   },
   created: function () {

@@ -10,7 +10,7 @@ import SourceSelection from '@/components/SourceSelection'
 import NewsList from '@/components/NewsList'
 
 export default {
-  name: 'app',
+  name: 'home',
   components: {
     SourceSelection,
     NewsList
@@ -28,8 +28,6 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  padding-top: 20px
-}
+<style scoped>
+
 </style>
