@@ -5,19 +5,21 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    selectedSource: null
+    source: null
   },
   getters: {
-    getSelectedSource: state => {
-      return state.selectedSource
+    getSource (state) {
+      return state.source
+    }
+  },
+  mutations: {
+    SET_SOURCE (state, source) {
+      state.source = source
     }
   },
   actions: {
-
-  },
-  mutations: {
-    setSelectedSource (state, selectedSource) {
-      state.selectedSource = selectedSource
+    setSource (state, source) {
+      store.commit('SET_SOURCE', source)
     }
   }
 })

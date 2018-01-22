@@ -2,7 +2,7 @@
   <div class="newsList">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="article in articles" v-bind:key="article">
+        <li class="media" v-for="article in articles" v-bind:key="article.title">
           <div class="media-left">
             <a v-bind:href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage">
@@ -10,10 +10,10 @@
           </div>
           <div class="media-body">
             <h4 class="media-heading">
-              <a v-bind:href="article.url" target="_blank">{{article.title}}</a>
+              <a v-bind:href="article.url" target="_blank">{{ article.title }}</a>
             </h4>
-            <h5><i>by {{article.author}}</i></h5>
-            <p>{{article.description}}</p>
+            <h5><i>by {{ article.author }}</i></h5>
+            <p>{{ article.description }}</p>
           </div>
         </li>
       </ul>
@@ -22,34 +22,29 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'newsList',
-  props: ['source'],
   data () {
     return {
       articles: []
     }
   },
-  methods: {
-    updateSource: function (source) {
-      console.log('source: ' + source)
-      if (source) {
+  computed: {
+    ...mapGetters({
+      source: 'getSource'
+    })
+  },
+  watch: {
+    source (newSource, oldSource) {
+      if (newSource) {
         var key = '226135efd44c4df8a142d9eefff2377e'
-        var url = 'https://newsapi.org/v2/top-headlines?sources=' + source + '&apiKey=' + key
+        var url = 'https://newsapi.org/v2/top-headlines?sources=' + newSource.id + '&apiKey=' + key
         this.$http.get(url).then(response => {
           this.articles = response.data.articles
         })
       }
-    }
-  },
-  created: function () {
-    console.log('created')
-    this.updateSource(this.source)
-  },
-  watch: {
-    source: function (value) {
-      console.log('watch')
-      this.updateSource(value)
     }
   }
 }

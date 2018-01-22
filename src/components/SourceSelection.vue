@@ -4,11 +4,16 @@
       <h2>
         <span class="glyphicon glyphicon-list-alt"></span> News List
       </h2>
-      <v-select v-model="selected" v-bind:options="options" placeholder="Select News Source..." label="name"></v-select>
-      <p>Source selected: {{ selected }}</p>
-      <div v-if="selected">
-        <h6>{{selected.description}}</h6>
-        <a v-bind:href="selected.url" class="btn btn-primary" target="_blank">Go to {{ selected.name }} Website</a>
+      <v-select
+        label="name"
+        placeholder="Select News Source..."
+        v-model="source"
+        v-bind:options="options"
+        v-bind:value="$store.state.source"
+      ></v-select>
+      <div v-if="source">
+        <h6>{{ source.description }}</h6>
+        <a v-bind:href="source.url" class="btn btn-primary" target="_blank">Go to {{ source.name }} Website</a>
       </div>
     </div>
   </div>
@@ -19,8 +24,7 @@ export default {
   name: 'sourceSelection',
   data () {
     return {
-      options: [],
-      selected: null
+      options: []
     }
   },
   created: function () {
@@ -29,6 +33,16 @@ export default {
     this.$http.get(url).then(response => {
       this.options = response.data.sources
     })
+  },
+  computed: {
+    source: {
+      get () {
+        return this.$store.state.source
+      },
+      set (val) {
+        this.$store.dispatch('setSource', val)
+      }
+    }
   }
 }
 </script>
