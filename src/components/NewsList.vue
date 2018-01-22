@@ -36,15 +36,25 @@ export default {
       source: 'getSource'
     })
   },
-  watch: {
-    source (newSource, oldSource) {
-      if (newSource) {
+  methods: {
+    example: function () {
+      if (this.source) {
         var key = '226135efd44c4df8a142d9eefff2377e'
-        var url = 'https://newsapi.org/v2/top-headlines?sources=' + newSource.id + '&apiKey=' + key
+        var url = 'https://newsapi.org/v2/top-headlines?sources=' + this.source.id + '&apiKey=' + key
         this.$http.get(url).then(response => {
           this.articles = response.data.articles
         })
+      } else {
+        this.articles = []
       }
+    }
+  },
+  created: function() {
+    this.example()
+  },
+  watch: {
+    source () {
+      this.example()
     }
   }
 }

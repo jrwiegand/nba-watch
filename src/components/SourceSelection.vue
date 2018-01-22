@@ -39,8 +39,8 @@ export default {
       get () {
         return this.$store.state.source
       },
-      set (val) {
-        this.$store.dispatch('setSource', val)
+      set (source) {
+        this.$store.dispatch('setSource', source)
       }
     }
   }
