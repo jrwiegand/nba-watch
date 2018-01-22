@@ -2,7 +2,7 @@
   <div class="newsList">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="article in articles">
+        <li class="media" v-for="article in articles" v-bind:key="article">
           <div class="media-left">
             <a v-bind:href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage">
@@ -32,9 +32,10 @@ export default {
   },
   methods: {
     updateSource: function (source) {
+      console.log('source: ' + source)
       if (source) {
         var key = '226135efd44c4df8a142d9eefff2377e'
-        var url = 'https://newsapi.org/v1/articles?source=' + source + '&apiKey=' + key
+        var url = 'https://newsapi.org/v2/top-headlines?sources=' + source + '&apiKey=' + key
         this.$http.get(url).then(response => {
           this.articles = response.data.articles
         })
@@ -42,10 +43,12 @@ export default {
     }
   },
   created: function () {
+    console.log('created')
     this.updateSource(this.source)
   },
   watch: {
     source: function (value) {
+      console.log('watch')
       this.updateSource(value)
     }
   }

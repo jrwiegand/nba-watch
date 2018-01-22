@@ -4,10 +4,11 @@
       <h2>
         <span class="glyphicon glyphicon-list-alt"></span> News List
       </h2>
-      <v-select v-model="selected" :options="options" placeholder="Select News Source..." label="name"></v-select>
+      <v-select v-model="selected" v-bind:options="options" placeholder="Select News Source..." label="name"></v-select>
+      <p>Source selected: {{ selected }}</p>
       <div v-if="selected">
         <h6>{{selected.description}}</h6>
-        <a :href="selected.url" class="btn btn-primary" target="_blank">Go to {{selected.name}} Website</a>
+        <a v-bind:href="selected.url" class="btn btn-primary" target="_blank">Go to {{ selected.name }} Website</a>
       </div>
     </div>
   </div>
@@ -18,12 +19,14 @@ export default {
   name: 'sourceSelection',
   data () {
     return {
-      options: null,
+      options: [],
       selected: null
     }
   },
   created: function () {
-    this.$http.get('https://newsapi.org/v1/sources?language=en').then(response => {
+    var key = '226135efd44c4df8a142d9eefff2377e'
+    var url = 'https://newsapi.org/v2/sources?language=en&apiKey=' + key
+    this.$http.get(url).then(response => {
       this.options = response.data.sources
     })
   }
