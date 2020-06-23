@@ -19,7 +19,7 @@
     "vue-axios": "^2.0.2",
     "vue-router": "^3.0.1",
     "vue-select": "^2.4.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.0",
